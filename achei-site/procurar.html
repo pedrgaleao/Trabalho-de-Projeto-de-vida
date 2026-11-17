@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Procurar objetos | Achei!</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="js/supabase.js"></script>
+  <script defer src="js/procurar.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="topbar-brand" href="index.html"><span class="mini-mark">⌕</span> Achei!</a>
+    <a class="button button-small button-primary" href="cadastrar.html">＋ Cadastrar objeto</a>
+  </header>
+
+  <main class="page-container">
+    <a class="back-link" href="index.html">← Voltar ao início</a>
+    <div class="page-heading">
+      <span class="eyebrow">ACHADOS E PERDIDOS</span>
+      <h1>Encontre seu objeto</h1>
+      <p>Veja o que foi encontrado na escola. Use a pesquisa ou filtre por categoria.</p>
+    </div>
+
+    <section class="search-tools panel">
+      <label class="sr-only" for="search">Pesquisar por nome ou local</label>
+      <input id="search" type="search" placeholder="Pesquisar por nome ou local...">
+      <label class="sr-only" for="filter-category">Filtrar por categoria</label>
+      <select id="filter-category">
+        <option value="">Todas as categorias</option>
+        <option>Material escolar</option>
+        <option>Roupas e acessórios</option>
+        <option>Eletrônicos</option>
+        <option>Garrafas e lancheiras</option>
+        <option>Chaves e outros</option>
+        <option>Outros</option>
+      </select>
+    </section>
+
+    <div class="results-heading">
+      <h2>Objetos disponíveis</h2>
+      <span id="result-count" class="result-count">Carregando...</span>
+    </div>
+    <div id="items-grid" class="items-grid">
+      <div class="empty-state panel">Carregando objetos...</div>
+    </div>
+    <p id="list-message" class="form-message" role="status" aria-live="polite"></p>
+  </main>
+
+  <dialog id="return-dialog" class="return-dialog">
+    <form method="dialog" class="dialog-content">
+      <h2>Marcar como devolvido?</h2>
+      <p>Confirme somente se o objeto já foi entregue ao dono ou à equipe responsável da escola.</p>
+      <div class="dialog-actions">
+        <button class="button button-quiet" value="cancel">Cancelar</button>
+        <button class="button button-primary" id="confirm-return" value="confirm">Confirmar devolução</button>
+      </div>
+    </form>
+  </dialog>
+</body>
+</html>
